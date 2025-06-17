@@ -21,11 +21,15 @@ export const routes: Routes = [
       {
         path: 'iletisim',
         loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent)
-      },
-      {
-        path: '**',
-        redirectTo: ''
       }
     ]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.routes').then(m => m.adminRoutes)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
